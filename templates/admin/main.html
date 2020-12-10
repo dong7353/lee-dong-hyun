@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block title %}아테네 학원입니다.{% endblock %}
+{% block content %}
+
+{% load static %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+
+<div class="card-box mb-30">
+ <script type="text/javascript">
+    $.get('chart.data', function(jsondata) {
+
+        Highcharts.chart('container', {
+
+           chart: {
+
+                type: 'line'
+
+            },
+
+            title : {
+                text : '일별 선생님 등록 수'
+
+            },
+
+            yAxis : {
+                title : {
+
+                    text: '원'
+               }
+            },
+
+            legend : {
+                layout : 'vertical',
+
+
+            },
+
+            data: jsondata,
+
+        });
+
+    });
+
+</script>
+
+   <div class="main-container">
+      <div class="pd-ltr-20">
+         <div class="card-box pd-20 height-100-p mb-30">
+            <div class="row align-items-center">
+                    <div class="col">
+                      <div class="da-card">
+                         <div class="da-card-photo" style="max-height:50%;">
+                              <img src="{% static '/vendors/images/athenae_big.png' %}" style="width : 100%; height : 400px;" alt="">
+                        </div>
+                      </div>
+                    </div>
+
+               <div class="col-md-8 mr-5">
+					<div class="tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active text-blue" data-toggle="tab" href="#home" role="tab" aria-selected="true">선생님</a>
+							</li>
+<!--							<li class="nav-item">-->
+<!--								<a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">전년도</a>-->
+<!--							</li>-->
+<!--							<li class="nav-item">-->
+<!--								<a class="nav-link text-blue" data-toggle="tab" href="#contact" role="tab" aria-selected="false">Area</a>-->
+<!--							</li>-->
+						</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade show active" role="tabpanel">
+							<div class="pd-20">
+<!--											차트삽입-->
+								<div class="card-box mb-30" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"> </div> </div>
+							</div>
+							<div class="tab-pane fade" id="profile" role="tabpanel">
+								<div class="pd-20">
+<!--											차트 삽입-->
+									<div class="card-box mb-30" id="line" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
+								</div>
+								<div class="tab-pane fade" id="contact" role="tabpanel">
+									<div class="pd-20">
+<!--											차트 삽입-->
+										<div class="card-box mb-30" id="area" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
+									</div>
+								</div>
+							</div>
+<!--                  차트삽입 자리-->
+               </div>
+            </div>
+         </div>
+<!--            <div class="card-box pd-20 height-200-p mb-30">-->
+<!--                     <div class="row clearfix">-->
+         <div class="pd-20 card-box mb-20">
+				<h5 class="h4 text-blue mb-20">선생님 현황</h5>
+					<div class="tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active text-blue" data-toggle="tab" href="#home" role="tab" aria-selected="true">전체 선생님</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">수학</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-blue" data-toggle="tab" href="#contact" role="tab" aria-selected="false">영어</a>
+							</li>
+						</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="home" role="tabpanel">
+							<div class="pd-20">
+                                <div class="row clearfix">
+                 {% if teacher_list %}
+                 {% for teacher in teacher_list %}
+
+                 <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+                      <div class="da-card">
+                         <div class="da-card-photo" style="max-height:50%;">
+                            <img src="../media/{{ teacher.t_file }}" style="width : 100%; height : 400px;" alt="">
+                         <div class="da-overlay">
+                            <div class="da-social">
+                                 <ul class="clearfix">
+<!--                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+                                 <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="da-card-content">
+                        <h5 class="h5 mb-10 text-center">{{ teacher.t_name }} 선생님</h5>
+<!--                        <p class="mb-0">Lorem ipsum dolor sit amet</p>-->
+                     </div>
+                  </div>
+               </div>
+
+         {% endfor %}
+         {% endif %}
+
+
+
+        </div>
+    </div>
+   <!-- js -->
+   <script src="../static/vendors/scripts/core.js"></script>
+   <script src="../static/vendors/scripts/script.min.js"></script>
+   <script src="../static/vendors/scripts/process.js"></script>
+   <script src="../static/vendors/scripts/layout-settings.js"></script>
+   <script src="../static/src/plugins/apexcharts/apexcharts.min.js"></script>
+   <script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   <script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+   <script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+   <script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+   <script src="../static/vendors/scripts/dashboard.js"></script>
+{% endblock %}

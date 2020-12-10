@@ -1,0 +1,109 @@
+{% extends 'base2.html' %}
+{% block title %}결제하기{% endblock %}
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plus.css' %}">
+</head>
+<body>
+
+<small>
+    결제관련문의는16:00 ~ 22시입니다.
+    <br>{{value|linebreaksbr}}
+    대표전화00-000-0000/데스크00-000-0000/FAX 000-000-0000
+</small>
+
+
+<div id="wrap" class="text-center">
+    <div>
+        <h1>결제하기</h1>
+    </div>
+</div>
+
+<div id="wrap">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
+                중등부
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
+                고등부
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                수학
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                영어
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="border">
+    <table class="table"><thead>
+    <tr>
+        <th scope="col">고등학교1학년</th>
+        <th scope="col">고등학교2학년</th>
+        <th scope="col">고등학교3학년</th>
+    </tr>
+    </thead>
+    </table>
+    <table class="table"><thead>
+    <tr>
+        <th scope="col">시작날짜, 수강기간</th>
+        <th scope="col">{{.l_startdate}}, 수강기간</th>
+        <th scope="col">{{list.l_startdate}}, 수강기간</th>
+    </tr>
+    </thead>
+    </table>
+    <table class="table"><thead>
+    <tr>
+        <th>
+        <button type="button" class="btn btn-primary" scope="col" href="/상세보기1">상세보기</button>
+        </th>
+        <th>
+        <button type="button" class="btn btn-primary" scope="col" href="/상세보기1">상세보기</button>
+        </th>
+        <th>
+        <button type="button" class="btn btn-primary" scope="col" href="/상세보기1">상세보기</button>
+        </th>
+    </tr>
+    </thead>
+    </table>
+    </table>
+    <table class="table"><thead>
+    <tr>
+        <th scope="col">가격</th>
+        <th scope="col">{{list.l_pay}}</th>
+        <th scope="col">{{list.l_pay}}</th>
+    </tr>
+    </thead>
+    </table>
+</div>
+{% if lecture_list %}
+{% for lecture in lecture_list %}
+<!--강의기간-->
+{{ lecture.l_term}}
+<!--강의료-->
+{{ lecture.l_pay }}
+<!--사진 링크-->
+{{ lecture.l_img }}
+{% endfor %}
+{% endif %}
+
+
+
+{% endblock %}
+

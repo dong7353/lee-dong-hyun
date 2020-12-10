@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>학부모 이용약관</title>
+        {% load static %}
+ <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+
+
+    <style>
+        #wrap {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            min-width: 1050px;
+            min-height: 1050px;
+        }
+
+        #header {
+            margin-top: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 10%;
+            text-align: center;
+        }
+
+        #top-content {
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 100px;
+        }
+
+        #bottom-content {
+            margin-top: 100px;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-bottom: 10%;
+            min-width: 1050px;
+            height: 70%;
+        }
+
+        .line {
+            width: 100%;
+            background-color: black;
+        }
+
+        div.go_btn {
+            float: left;
+            padding: 1px;
+            margin-left: 25%;
+            width: 15%;
+            height: 5%;
+            }
+
+        .btn{
+        width: 100%;
+        height: 100%;
+        margin-left: 16%;
+        text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        <h1>회원가입
+        </h1>
+    </div>
+    <hr class="line">
+    <div id="content">
+        <div id="top-content">
+            <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body"><h4 class="card-title">가입유형 선택</h4>
+                </div>
+            </div>
+            <div class="card text-white bg-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body"><h4 class="card-title">이용약관 동의</h4>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body"><h4 class="card-title">회원정보 입력</h4>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body">
+                <h4 class="card-title">이메일 인증</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="line">
+    <div id="bottom-content" >
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" checked="">
+                이용약관에 동의합니다
+            </label>
+        </div>
+        <div class="card border-dark mb-3" style="min-width: 70%; min-height: 15%; display: inline-block;" >
+            <div class="card-body">
+                <h9>이용약관</h9>
+            </div>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" checked="">
+                이용약관에 동의합니다
+            </label>
+        </div>
+        <div class="card border-dark mb-3" style="min-width: 70%; min-height: 15%; display: inline-block;" >
+            <div class="card-body">
+                <h9>학부모 이용약관</h9>
+            </div>
+        </div>
+    </div>
+    <div class="btn container">
+    <div class="go_btn">
+        <a href="../sign"><button type="button" class="btn btn-primary btn-sm">이전</button></a>
+    </div>
+    <div class="go_btn">
+        <a href="#회원정보입력"><button type="button" class="btn btn-primary btn-sm">다음</button></a>
+    </div>
+</div>
+</div>
+</body>
+</html>
